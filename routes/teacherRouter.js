@@ -15,7 +15,7 @@ router.post('/teacher/register', async (req, res) =>{
     
 })
 //  Get all teachers
-router.get('/ teachers', async (req, res) =>{
+router.get('/teachers', async (req, res) =>{
     try{
         const teacher = await Teacher.find();
         res.status(200). send(teacher);
@@ -26,5 +26,33 @@ router.get('/ teachers', async (req, res) =>{
     }
 
 })
+// update and delete teacher 
+router.put('/teachers/:id', async (req, res) => {
+  try {
+    const teacher = await Teacher.findByIdAndUpdate(req.params
+
+.id, req.body, { new: true });
+    if (!teacher) {
+      return res.status(404).json({ message: 'Teacher not found' });
+    }
+    res.status(200).json(teacher);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// Delete a teacher
+router.delete('/teachers/:id', async (req, res) => {
+  try {
+    const teacher = await Teacher.findByIdAndDelete(req.params.id);
+    if (!teacher) {
+      return res.status(404).json({ message: 'Teacher not found' });
+    }
+    res.status(204).send();
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 module.exports= router
 

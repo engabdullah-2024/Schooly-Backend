@@ -18,7 +18,7 @@ const teacherSchema = new mongoose.Schema({
     },
     passowrd:{
         type: String,
-        required: true,
+        required: false,
 
     },
     phone:{

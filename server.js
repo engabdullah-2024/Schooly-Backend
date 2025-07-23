@@ -4,7 +4,8 @@ const studentRouter = require('./routes/studentRouter');
 const teacherRouter = require('./routes/teacherRouter');
 const parentRouter = require('./routes/parentRouter')
 const classRouter = require('./routes/classRouter');
-const subjectRouter = require('./routes/subjectRouter'); // Assuming you have a subjectRouter
+const subjectRouter = require('./routes/subjectRouter');
+ // Assuming you have a subjectRouter
 
 const mongoose = require('mongoose');
 
